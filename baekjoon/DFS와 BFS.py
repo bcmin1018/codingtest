@@ -28,7 +28,7 @@ dfs(V)
 
 v = [0] * (N + 1)
 ans_bfs = []
-bfs(V)
+# bfs(V)
 
 print(ans_dfs)
 print(ans_bfs)
