@@ -62,12 +62,12 @@ def bfs(V):
     visited_bfs[V] = 1
 
     while q:
-        s = q.pop(0)
-        for c in matrix[s]:
-            if not visited_bfs[c]:
-                q.append(c)
-                ans_bfs.append(c)
-                visited_bfs[c] = 1
+        c = q.pop(0)
+        for n in matrix[c]:
+            if not visited_bfs[n]:
+                q.append(n)
+                ans_bfs.append(n)
+                visited_bfs[n] = 1
 
 
 
@@ -80,8 +80,8 @@ for _ in range(0, M):
     matrix[e].append(s)
 
 # 정점 안에 있는 순서는 오름차순으로 방문해야하기 때문에 sort 진행
-for node in matrix:
-    node.sort()
+for i in range(1, N+1):
+    matrix[i].sort()
 
 ans_dfs = []
 visited_dfs = [0] * (N + 1)
@@ -91,5 +91,5 @@ ans_bfs = []
 visited_bfs = [0] * (N + 1)
 bfs(V)
 
-print(ans_dfs)
-print(ans_bfs)
+print(*ans_dfs)
+print(*ans_bfs)
