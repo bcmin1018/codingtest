@@ -1,56 +1,39 @@
 # https://www.acmicpc.net/problem/9663
 # https://www.youtube.com/watch?v=HRwFgtiqHH0
+# https://www.acmicpc.net/problem/9663
 
 # 체스판에 몇개를 배치해야하나
 
+# 가능한 좌표의 위치를 찾기 위해 3가지의 배열을 만들어야 한다.
+# 룩업 테이블 사용
+# 같은 열에 체스가 있는지 확인하는 배열
+# 대각선 오른쪽 위에 체스가 있는지 확인 하는 배열
+# 대각선 왼쪽 위에 체스가 있는지 확인 하는 배열
 
-# current_candidate : 이미 배치된 퀸의 배치 정보
-# final_result : 전체 배치 정보
+import sys
+sys.stdin = open("input.txt", "r")
 
+def dfs(n):
+    global ans
+    if n==N:
+        ans+=1
+        return
 
-# def is_available(candidate, current_col):
-#     current_row = len(candidate)
-#
-# def DFS(N, current_row, current_candidate, final_result):
-#     if current_row == N: # 종료 조건
-#         final_result.append(current_candidate)
-#         return
-#
-#     for candidate_col in range(N): # 다음 행을 체크
-#         if is_available(current_candidate, candidate_col): # current_candi
-#             current_candidate.append(candidate_col)
-#             DFS(N, current_row+1, current_candidate, final_result)
-#             current_candidate.pop() # 백트레킹
-#
-# def solve_n_queens(N):
-#     final_result = []
-#     DFS(N, 0, [], final_result)
-#     return final_result
+    for j in range(N):
+        #  v1[j] 는 세로를 확인하기 위한 배열로 퀸을 둔 곳에 1로 표기한다.
+        if v1[j] == v2[n+j] == v3[n-j] == 0:
+            v1[j] = v2[n+j] = v3[n-j] = 1
+            dfs(n+1)
+            v1[j] = v2[n+j] = v3[n-j] = 0
 
+N = int(input())
 
-def n_queens(i, col):
-    # i = depth col = 칼럼 배열
-    n = len(col) -1
-    if (promising(i, col)):
-        if i == n: # 아래 depth까지 탐색
-            print(col[1: n+1])
-        else:
-            for j in range(1, n+1):
-                col[i+1] = j
-                n_queens(i+1, col)
-
-def promising (i, col):
-    k = 1
-    flag = True
-    while (k < i and flag):
-        if col[i] == col[k] or abs(col[i] - col[k]) == (i - k):
-            flag = False # 유망하지 않다는 뜻이다.
-        k += 1
-    return flag
-
-n = 4
-col = [0] * (n + 1)
-n_queens(0, col)
+ans = 0
+v1 = [0] * N # 컬럼
+v2 = [0] * (N*2) # 우측 대각선,
+v3 = [0] * (N*2) # 좌측 대각선
+dfs(0)
+print(ans)
 
 
 
