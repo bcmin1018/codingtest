@@ -18,7 +18,6 @@ def dfs(n, sum, cnt):
     # 포함하지 않은 경우 (sum과 cnt는 그대로 다음 노드에 전달해준다.)
     dfs(n+1, sum, cnt) # 포함하지 않는 경우에는 다음 노드로 가지만 sum을 추가 하지 않는다.
 
-
 N, S = map(int, input().split())
 lst = list(map(int, input().split()))
 ans = 0
