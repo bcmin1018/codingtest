@@ -23,3 +23,4 @@ lst = list(map(int, input().split()))
 ans = 0
 dfs(0, 0, 0)
 print(ans)
+
