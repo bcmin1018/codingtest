@@ -1,1 +1,5 @@
-tsdfsdf
+전반적인 코딩 테스트 알고리즘에 대한 설명 나동빈
+https://www.youtube.com/watch?v=m-9pAwq1o3w&list=PLRx0vPvlEmdAghTr5mXQxGpHjWqSz0dgC
+
+백준 문자열
+https://www.acmicpc.net/problemset?sort=ac_desc&algo=158
