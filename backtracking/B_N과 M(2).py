@@ -19,23 +19,6 @@ dfs(1, [])
 for lst in ans:
     print(*lst)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 # 위의 코드는 중복을 고려하지 않고 만든 코드이다.
 
 # def dfs(n, lst):
