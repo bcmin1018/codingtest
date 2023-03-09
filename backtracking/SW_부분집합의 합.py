@@ -9,7 +9,7 @@ def dfs(n, sum_, cnt):
     global ans
 
     # 가지치기: 가장 마지막에 고민
-    if sum_>K : # 이미 초과했고 음수가 없음.
+    if sum_> K : # 이미 초과했고 음수가 없음.
         return
 
     if n == N: # 종료 조건
