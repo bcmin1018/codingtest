@@ -1,29 +1,27 @@
+# 아직 풀지 못함.
+
 class Solution:
     def combinationSum(self, candidates, target):
         self.candidates = candidates
         self.target = target
         self.answer = []
-        self.lst = []
-        self.dfs(0,0)
+        self.dfs(0,0, [])
         return self.answer
 
-    def dfs(self, n, sum):
+    def dfs(self, n, sum, lst):
         if sum > 7:
-            # s += 1
             return
 
         if sum == 7:
-            self.lst.append(candidates[n])
-            self.answer.append(self.lst)
+            self.answer.append(lst)
             self.lst = []
-            # s += 1
             return
+        #
+        # if n > len(self.candidates)-1:
+        #     return self.answer
 
-        if n > len(self.candidates)-1:
-            return self.answer
-
-        for c in range(len(self.candidates)):
-            self.dfs(n+1, sum + self.candidates[c])
+        for c in range(0, len(self.candidates)-1):
+            self.dfs(n+1, sum + self.candidates[c], lst + [candidates[c]])
 
 if __name__ == "__main__":
     a = Solution()
