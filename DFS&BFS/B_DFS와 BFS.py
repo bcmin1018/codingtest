@@ -35,7 +35,7 @@ import sys
 #
 # # 오름차순 정렬
 # for i in range(1, N+1):
-#     adj[i].sort()
+#     adj[i].Search()
 #
 # v = [0] * (N + 1)
 # ans_dfs = []
@@ -79,7 +79,7 @@ for _ in range(0, M):
     matrix[s].append(e)
     matrix[e].append(s)
 
-# 정점 안에 있는 순서는 오름차순으로 방문해야하기 때문에 sort 진행
+# 정점 안에 있는 순서는 오름차순으로 방문해야하기 때문에 Search 진행
 for i in range(1, N+1):
     matrix[i].sort()
 
