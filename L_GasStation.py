@@ -6,27 +6,23 @@
 class Solution:
     def canCompleteCircuit(self, gas, cost):
         total_route = len(gas)
-        total_gas = 0
+        if sum(gas) < sum(cost):
+            return -1
         for i in range(0, total_route):
+            total_gas = 0
+            # start
+            total_gas += gas[i]
+            for j in range(i, total_route + i):
+                idx = j % total_route
+                # 다음 칸으로
+                total_gas -= cost[idx]
+                if total_gas < 0:
+                    break
+                total_gas += gas[(idx+1) % total_route]
             if total_gas > 0:
                 return i
-            else:
-                total_gas = 0
-            total_gas = total_gas + gas[i]
-            for j in range(i+1, total_route + i):
-                if j > total_route-1:
-                    total_gas += gas[j-total_route]
-                    if total_gas - cost[j-total_route-1] < 0:
-                        break
-                    else:
-                        total_gas = total_gas - cost[j-total_route-1]
-                else:
-                    if total_gas - cost[j-1] < 0:
-                        total_gas = total_gas - cost[j-1]
-                    else:
-                        total_gas = total_gas - cost[j-1]
-                    # total_gas += gas[j]
         return -1
+
 
 if __name__ == "__main__":
     gas = [1,2,3,4,5]
