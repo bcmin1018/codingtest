@@ -1,4 +1,5 @@
 # https://leetcode.com/problems/time-based-key-value-store/
+# 바이너리서치로 찾으려는 key값 보다 작은 값 중에 가장 작은 값을 찾는 것.
 class TimeMap:
     def __init__(self):
         self.dict = {}
