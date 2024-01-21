@@ -1,29 +1,23 @@
 def solution(N, stages):
     p = len(stages)
-    N_list = [0] * (N+1)
-    print(f"첫  {N_list}")
+    N_list = [0] * (N+2)
     for s in stages:
-        if s > N:
-            continue
         N_list[s] += 1
-    print(f"N_list 다 채움  {N_list}")
-    result = [0] * (N+1)
-    for i, f in enumerate(N_list):
-        result[i] = f/p
-        p = p-f
-    print(f"result 정렬 전  {result}")
 
-    sorted_result = [0] * (N+1)
-    for i, r in enumerate(result[1:]):
-
-
-
-    # sorted_result = sorted(result[1:], reverse=True)
-    return sorted_result
-
+    fails = {}
+    for i in range(1, N+1):
+        if N_list[i] == 0:
+            fails[i] = 0
+        else:
+            fails[i] = N_list[i]/p
+            p -= N_list[i]
+    print(fails)
+    result = sorted(fails, key=lambda x : fails[x], reverse=True)
+    return result
 
 N = 5
 stages = [2, 1, 2, 6, 2, 4, 3, 3]
+# stages = [4,4,4,4,4]
 print(solution(N, stages))
 
 # print([0] * N)
