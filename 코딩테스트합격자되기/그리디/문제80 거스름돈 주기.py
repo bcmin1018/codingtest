@@ -2,7 +2,7 @@ def solution(amount):
     moneny = [1, 10, 50, 100]
     result = []
 
-    for i, m in enumerate(reversed(moneny)):
+    for m in reversed(moneny):
         while True:
             if amount < m:
                 break
