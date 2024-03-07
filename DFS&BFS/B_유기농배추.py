@@ -28,11 +28,12 @@ def process():
     ans = 0
     for i in range(1, N+1):
         for j in range(1, M+1):
-            if ck[i][j]: # 방문했다면 다음 loop를 돌기 대문에 continue 밑으로 내려가지 않는다.
+            if ck[i][j] == 1: # 방문했다면 다음 loop를 돌기 대문에 continue 밑으로 내려가지 않는다.
                 continue
             dfs(i, j) #방문하지 않았다면 그 지점에서 깊이 우선 탐색
+            print(ans)
             ans += 1
-    print(ans)
+    # print(ans)
 
 
 
