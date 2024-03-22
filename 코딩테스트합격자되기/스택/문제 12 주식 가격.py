@@ -21,7 +21,12 @@ def solution(prices):
             answer.append(i - j)
         stack.append(i)
 
+    print(answer)
+    print(stack)
     while stack:
         j = stack.pop()
-        answer.append(len(prices) - j)
+        answer.append(j - stack[-1])
     return answer
+
+prices = [1, 2, 3, 2, 3]
+print(solution(prices))
