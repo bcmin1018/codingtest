@@ -25,7 +25,6 @@ def solution(maps):
                     queue.append((nx, ny))
                     visited[ny][nx] = visited[y_][x_] + 1
 
-
     bfs((0,0))
 
     if visited[y-1][x-1] == 0:
