@@ -4,7 +4,6 @@
 
 import sys
 sys.stdin = open("input.txt", "r")
-
 def dfs(n, lst):
     if n == N+1: # 기본적으로 끝까지 탐색을 위해 제시된 노드와 비교
         if len(lst) == M:
