@@ -2,6 +2,7 @@
 # https://www.acmicpc.net/problem/15650
 # 중복 된 요소를 제거해야하는 것이 이 문제의 포인트 인 것 같다. (1, 2), (2, 1)을 제거
 
+
 import sys
 sys.stdin = open("input.txt", "r")
 def dfs(n, lst):
