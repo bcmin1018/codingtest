@@ -1,3 +1,5 @@
+# 위로 올라가야하면 left를 갱신 반대는 right를 갱신
+
 K, N = map(int, input().split())
 cable = []
 for _ in range(K):
