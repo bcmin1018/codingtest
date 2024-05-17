@@ -21,6 +21,7 @@ def bfs(start):
                 elif maps[ny][nx] == size:
                     visited[ny][nx] = visited[y][x] + 1
 
+
 for i in range(0, N):
     for j in range(0, N):
         if maps[j][i] == 9 and visited[j][i] == 0:
