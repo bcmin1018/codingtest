@@ -56,25 +56,27 @@ def solution(n, info):
     answer = []
     for r in ryan:
         score_gap, target_ryan = score(info, r)
-        if max_gap < score_gap:
-            max_gap = score_gap
-            answer.clear()
-            answer.append(target_ryan)
-        elif max_gap == score_gap:
-            answer.append(target_ryan)
+        if score_gap> 0:
+            answer.append((score_gap, target_ryan))
+        # if max_gap < score_gap:
+        #     max_gap = score_gap
+        #     answer.clear()
+        #     answer.append(target_ryan)
+        # elif max_gap == score_gap:
+        #     answer.append(target_ryan)
 
     if len(answer) == 0:
         return [-1]
     else:
-        result = find_lowest_scoring_list(answer)
-        return result
+        result = sorted(answer, reverse=True)
+        return result[0]
 
-print(find_lowest_scoring_list([[1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0], [1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0]]))
+# print(find_lowest_scoring_list([[1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0], [1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0]]))
 # print(solution(3, [0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1])) # [1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0]
 # print(solution(5, [2,1,1,1,0,0,0,0,0,0,0]))
 # print(solution(1, [1,0,0,0,0,0,0,0,0,0,0]))
-# print(solution(9, [0,0,1,2,0,1,1,1,1,1,1]))
-# print(solution(10, [0,0,0,0,0,0,0,0,3,4,3]))
+print(solution(9, [0,0,1,2,0,1,1,1,1,1,1]))
+print(solution(10, [0,0,0,0,0,0,0,0,3,4,3]))
 
 # print(score([0,0,1,2,0,1,1,1,1,1,1], (10, 9, 8, 8, 7, 7, 7, 5, 5)))
 # print(score([0,0,1,2,0,1,1,1,1,1,1], (10, 9, 8, 8, 6, 5, 5, 4, 4)))
