@@ -1,14 +1,16 @@
 # https://www.acmicpc.net/problem/10799
 
-text = list(input())
+text = input()
 stack = []
 answer = 0
-for t in text:
-    if t == "(":
-        stack.append(t)
+for i in range(len(text)):
+    if text[i] == "(":
+        stack.append(text[i])
     else:
-        if stack[-1] == "(":
+        if text[i-1] == "(":
             stack.pop()
-            # 레이저 발사
-
-
+            answer += len(stack)
+        else:
+            stack.pop()
+            answer += 1
+print(answer)
