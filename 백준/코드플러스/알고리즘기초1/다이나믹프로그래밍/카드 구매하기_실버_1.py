@@ -9,4 +9,3 @@ for i in range(1, N + 1):
         if j - i >= 9:
             dp[j] = max(dp[j], dp[j - i] + lst[i])
         print(dp[N])
-
