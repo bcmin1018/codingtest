@@ -1,5 +1,6 @@
 # https://www.acmicpc.net/problem/2252
 # 위상 정렬이라는 것을 배웠다. 싸이클이 없는 방향 그래프인 경우 위상 정렬을 사용하자.
+# 위상 정렬은 기본적으로 큐를 사용하여 구현한다. 
 
 from collections import deque
 
