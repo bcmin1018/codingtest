@@ -19,6 +19,7 @@ def bfs():
     q = deque()
     q.append((1, 0))
     v[1] = 1
+
     while q:
         m, c = q.popleft()
         if m == 100:
@@ -27,7 +28,9 @@ def bfs():
 
         for i in range(1, 7):
             new = m + i
-            print(new)
+            if new > 100:
+                continue
+
             if v[new] == 0 and new in ladder:
                 q.append((ladder[new], c+1))
                 v[ladder[new]] = 1
@@ -41,3 +44,12 @@ def bfs():
                 v[new] = 1
 
 bfs()
+
+# 반례
+1 5
+2 92
+94 3
+95 4
+96 5
+97 6
+98 7
