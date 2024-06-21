@@ -28,28 +28,21 @@ def bfs():
 
         for i in range(1, 7):
             new = m + i
+
             if new > 100:
                 continue
 
             if v[new] == 0 and new in ladder:
                 q.append((ladder[new], c+1))
+                v[new] = 1
                 v[ladder[new]] = 1
 
             if v[new] == 0 and new in snake:
                 q.append((snake[new], c+1))
+                v[new] = 1
                 v[snake[new]] = 1
 
-            if v[new] == 0 and board[new] < 100:
+            if v[new] == 0:
                 q.append((new, c+1))
                 v[new] = 1
-
 bfs()
-
-# 반례
-1 5
-2 92
-94 3
-95 4
-96 5
-97 6
-98 7
