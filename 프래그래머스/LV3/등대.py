@@ -19,8 +19,6 @@ def solution(n, lighthouse):
             dfs(child, node)
             if light[child] == False and light[node] == False: #부모 자식 모두 불이 안켜져 있으면 부모가 불을 밝힌다.
                 light[node] = True
-                # answer +=1
-        # return answer
     dfs(1, 1)
     return sum(light)
 
