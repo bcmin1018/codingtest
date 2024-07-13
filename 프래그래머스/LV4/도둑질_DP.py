@@ -13,5 +13,6 @@ def solution(money):
 
     return max(dp1[-2], dp2[-1])
 
+
 money = [1, 2, 3]
 print(solution(money))
