@@ -12,6 +12,7 @@ def solution(info, edges):
             return
         v[pos][s][w] = True
 
+
         if info[pos] == 0:
             n_s = s + 1
         if info[pos] == 1:
