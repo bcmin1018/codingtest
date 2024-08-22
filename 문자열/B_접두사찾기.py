@@ -4,24 +4,64 @@
 # coding이면 c의 key를 찾아 coding 문자열이 있는지 탐색
 from collections import defaultdict
 
+# N, M = map(int, input().split())
+#
+# inputs, targets = [], []
+# for _ in range(0, N):
+#     inputs.append(input())
+# for _ in range(0, M):
+#     targets.append(input())
+#
+# dic = defaultdict(set)
+# for input_ in inputs:
+#     for i in range(1, len(input_)):
+#         dic[input_[0]].add(input_[0:i])
+#
+# answer = 0
+# for t in targets:
+#     print(t[0])
+#     if t in dic[t[0]]:
+#         answer+=1
+# print(answer)
+
+
+## 5% 에서 계속 틀렸다가 나오는데 이유를 모르겠다. 다른 코드를 참고하여 아래와 같이 변경했다. with startwith
+from collections import defaultdict
 N, M = map(int, input().split())
 
-inputs, targets = [], []
+dic = defaultdict(list)
+targets = []
 for _ in range(0, N):
-    inputs.append(input())
+    input_ = input()
+    dic[input_[0]].append(input_)
+
 for _ in range(0, M):
     targets.append(input())
 
-dic = defaultdict(set)
-for input_ in inputs:
-    for i in range(1, len(input_)):
-        dic[input_[0]].add(input_[0:i])
-
 answer = 0
-for t in targets:
-    if t in dic[t[0]]:
-        answer+=1
+for i in range(M):
+    for w in dic[targets[i][0]]:
+        if w.startswith(targets[i]):
+            answer += 1
+            break
 print(answer)
+
+import string
+
+n, m = map(int, input().split())
+words = {x: [] for x in string.ascii_lowercase}
+for _ in range(n):
+    word = input()
+    words[word[0]].append(word)
+test = sorted([input() for _ in range(m)])
+answer = 0
+for i in range(m):
+    for word in words[test[i][0]]:
+        if word.startswith(test[i]):
+            answer += 1
+            break
+print(answer)
+
 
 
 
