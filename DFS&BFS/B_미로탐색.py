@@ -5,10 +5,10 @@ map = [list(map(int, input())) for _ in range(0, N)]
 visited = [[0] * M for _ in range(0, N)]
 queue = deque()
 
-
 def bfs(start):
     queue.append(start)
-    visited[start[1]][start[0]] = 1
+    x, y = start[0], start[1]
+    visited[y][x] = 1
 
     while queue:
         x, y = queue.popleft()
