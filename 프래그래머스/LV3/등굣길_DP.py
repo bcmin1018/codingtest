@@ -1,5 +1,6 @@
 from collections import deque
 
+# BFS 풀이
 def solution(m, n, puddles):
     answer = 0
     queue = deque()
@@ -25,5 +26,19 @@ def solution(m, n, puddles):
     bfs((1,1))
     answer = path[n][m]
     return answer
+
+# DP 풀이
+def solution2(m, n, puddles):
+    dp = [[0] * (m+1) for _ in range(n+1)]
+    dp[1][1] = 1
+    for y in range(n+1):
+        for x in range(m+1):
+            if [x, y] in puddles:
+                dp[y][x] = 0
+                continue
+            dp[y][x] += (dp[y - 1][x] + dp[y][x - 1]) % 1000000007
+    return dp[n][m]
+
+
 m, n, puddles = 4, 3, [[2,2]]
-print(solution(m, n, puddles))
+print(solution2(m, n, puddles))
